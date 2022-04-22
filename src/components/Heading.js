@@ -5,6 +5,7 @@ const getFontSize = ({ variant, theme }) => {
     h1: theme.sizes.xlarge,
     h2: theme.sizes.large,
     h3: theme.sizes.medium,
+    h4: theme.sizes.small,
   }
   return variantTypes[variant] || theme.sizes.xxlarge
 }
