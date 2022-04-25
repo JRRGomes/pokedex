@@ -1,6 +1,10 @@
-import { api } from "../api";
+import axios from 'axios';
 
 const TOTAL_POKEMONS = 1126;
+
+export const api = axios.create({
+  baseURL: 'https://pokeapi.co/api/v2',
+})
 
 export const fetchPokemons = () => {
   return api.get(`/pokemon/?offset=0&limit=${TOTAL_POKEMONS}`)

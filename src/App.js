@@ -3,7 +3,7 @@ import { ThemeProvider } from 'styled-components';
 import { Heading } from './components';
 import theme from '../src/theme';
 import { useEffect, useState } from 'react';
-import { fetchPokemons } from './components/fetchPokemons';
+import { fetchPokemons } from './services/pokemon';
 
 function App() {
 
