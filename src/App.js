@@ -9,13 +9,9 @@ function App() {
 
   const [pokemons, setPokemons] = useState([])
 
-  const getPokemons = () => {
+  useEffect(() => {
     fetchPokemons()
     .then((pokemonsObj) => setPokemons(pokemonsObj))
-  }
-
-  useEffect(() => {
-    getPokemons()
   }, [])
 
   return (
@@ -23,7 +19,7 @@ function App() {
       <GlobalStyle />
       <Heading variant='h3' align='center'>Pokedex</Heading>
       {pokemons.map((pokemon) => (
-        <Heading variant='h4' align='center'>{pokemon.name}</Heading>
+        <Heading key={pokemon.name} variant='h4' align='center'>{pokemon.name}</Heading>
       ))}
     </ThemeProvider>
   );
