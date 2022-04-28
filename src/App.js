@@ -1,7 +1,7 @@
 import GlobalStyle from './components/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
 import { Container, Heading } from './components';
-import Card from './components/card/Card'
+import { Card, CardImage } from './components/card/'
 import theme from '../src/theme';
 import { useEffect, useState } from 'react';
 import { fetchPokemons } from './services/pokemon';
@@ -35,11 +35,16 @@ function App() {
       <Heading variant='h3' align='center'>Pokedex</Heading>
       {!hasError && !isLoading && <Container>
         {pokemons.map((pokemon) => (
-          <Card key={pokemon.name}>{pokemon.name}</Card>
+          <Card key={pokemon.name}>
+            <CardImage src={pokemon.sprites.other.dream_world.front_default} />
+              {pokemon.types.map((typeObj) => (
+                <p>{typeObj.type.name}</p>
+              ))}
+          </Card>
         ))}
       </Container>}
-      {hasError && <div>Could not load posts</div>}
-      {isLoading && <div>Loading pokemons...</div>}
+      {hasError && <Card>Could not load posts</Card>}
+      {isLoading && <Card>Loading pokemons...</Card>}
     </ThemeProvider>
   );
 }
