@@ -4,6 +4,7 @@ const primaryFont = "'Roboto', sans-serif";
 
 const colors = {
   backgroundColor: '#E6E6E6',
+  cardBackground: '#F5F5F5',
 };
 
 const sizes = {
@@ -17,11 +18,19 @@ const sizes = {
   xxlarge: '4rem',
 }
 
+const breakpoints = {
+  smartphone: '(max-width: 470px)',
+  tablet: '(max-width: 915px)',
+  smallTablet: '(max-width: 690px)',
+  laptop: '(max-width: 1150px)',
+}
+
 const theme = {
     titleFont,
     primaryFont,
     colors,
     sizes,
+    breakpoints,
 }
 
 export default theme;
