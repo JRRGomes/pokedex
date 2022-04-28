@@ -16,13 +16,16 @@ const sizes = {
   large: '2rem',
   xlarge: '3rem',
   xxlarge: '4rem',
+  pokemonImg: '5rem',
+  cardWidth: '16rem',
+  cardHeight: '20rem',
 }
 
 const breakpoints = {
-  smartphone: '(max-width: 470px)',
-  tablet: '(max-width: 915px)',
-  smallTablet: '(max-width: 690px)',
-  laptop: '(max-width: 1150px)',
+  smartphone: '(max-width: 664px)',
+  tablet: '(max-width: 952px)',
+  smallLaptop: '(max-width: 1228px)',
+  laptop: '(max-width: 1510px)',
 }
 
 const theme = {
