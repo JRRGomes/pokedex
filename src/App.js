@@ -1,6 +1,7 @@
 import GlobalStyle from './components/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
-import { Heading } from './components';
+import { Container, Heading } from './components';
+import Card from './components/card/Card'
 import theme from '../src/theme';
 import { useEffect, useState } from 'react';
 import { fetchPokemons } from './services/pokemon';
@@ -32,11 +33,11 @@ function App() {
     <ThemeProvider theme={theme}>
       <GlobalStyle />
       <Heading variant='h3' align='center'>Pokedex</Heading>
-      {!hasError && !isLoading && <div>
+      {!hasError && !isLoading && <Container>
         {pokemons.map((pokemon) => (
-          <Heading key={pokemon.name} variant='h4' align='center'>{pokemon.name}</Heading>
+          <Card key={pokemon.name}>{pokemon.name}</Card>
         ))}
-      </div>}
+      </Container>}
       {hasError && <div>Could not load posts</div>}
       {isLoading && <div>Loading pokemons...</div>}
     </ThemeProvider>
