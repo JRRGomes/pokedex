@@ -3,6 +3,7 @@ const titleFont = "'Press Start 2P', cursive";
 const primaryFont = "'Roboto', sans-serif";
 
 const colors = {
+  darkGrey: '#919191',
   backgroundColor: '#E6E6E6',
   cardBackground: '#F5F5F5',
 };
@@ -16,7 +17,7 @@ const sizes = {
   large: '2rem',
   xlarge: '3rem',
   xxlarge: '4rem',
-  pokemonImg: '5rem',
+  pokemonImg: '6rem',
   cardWidth: '16rem',
   cardHeight: '20rem',
 }
