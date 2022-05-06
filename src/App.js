@@ -1,9 +1,10 @@
 import GlobalStyle from './components/GlobalStyle';
 import { ThemeProvider } from 'styled-components';
-import { Card, Container, Heading } from './components';
+import { Card, CardsContainer, Heading, Loading } from './components';
 import theme from '../src/theme';
 import { useEffect, useState } from 'react';
 import { fetchPokemons } from './services/pokemon';
+import pokebol from './img/pokebol.png'
 
 function App() {
 
@@ -31,14 +32,18 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Heading variant='h3' align='center'>Pokedex</Heading>
-      {!hasError && !isLoading && <Container>
-        {pokemons.map((pokemon) => (
-          <Card key={pokemon.name} pokemon={pokemon} />
-        ))}
-      </Container>}
+      {!hasError && !isLoading &&
+        <>
+          <Heading variant='h3' align='center'>Pokedex</Heading>
+          <CardsContainer>
+            {pokemons.map((pokemon) => (
+              <Card key={pokemon.name} pokemon={pokemon} />
+              ))}
+          </CardsContainer>
+        </>
+      }
       {hasError && <Heading variant='h4'>Could not load posts</Heading>}
-      {isLoading && <Heading variant='h4'>Loading pokemons...</Heading>}
+      {isLoading && <Loading src={pokebol} />}
     </ThemeProvider>
   );
 }
