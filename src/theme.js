@@ -17,7 +17,7 @@ const sizes = {
   large: '2rem',
   xlarge: '3rem',
   xxlarge: '4rem',
-  pokemonImg: '6rem',
+  pokemonImg: '8rem',
   cardWidth: '16rem',
   cardHeight: '20rem',
 }

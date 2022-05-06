@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+const CardsContainer = ({children, ...props}) => {
+  return <StyledContainer {...props}>{children}</StyledContainer>
+}
+
 const StyledContainer = styled.section`
   display: grid;
 	grid-template-columns: repeat(5, 1fr);
@@ -25,8 +29,4 @@ const StyledContainer = styled.section`
   }
 `
 
-const Container = ({children, ...props}) => {
-  return <StyledContainer {...props}>{children}</StyledContainer>
-}
-
-export default Container
+export default CardsContainer

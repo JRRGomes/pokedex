@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
+const Heading = ({children, ...props}) => {
+  return <StyledHeading {...props}>{children}</StyledHeading>
+}
+
 const getFontSize = ({ variant, theme }) => {
   const variantTypes = {
     h1: theme.sizes.xlarge,
@@ -19,9 +23,5 @@ const StyledHeading = styled.h1`
   font-size: ${getFontSize};
   text-align: ${getAlign};
 `
-
-const Heading = ({children, ...props}) => {
-  return <StyledHeading {...props}>{children}</StyledHeading>
-}
 
 export default Heading

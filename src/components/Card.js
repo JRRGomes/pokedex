@@ -1,5 +1,25 @@
 import styled from 'styled-components';
 
+const Card = ({pokemon}) => {
+  return (
+    <StyledCard>
+      <ImageContainer>
+        { pokemon && <CardImage src={pokemon.sprites.other.dream_world.front_default} ></CardImage>
+        }
+      </ImageContainer>
+      <InfoContainer>
+        { pokemon && <CardId># {pokemon.id}</CardId> }
+        { pokemon && <CardName>{pokemon.name}</CardName> }
+        <TypesContainer>
+          { pokemon && pokemon.types.map((typeObj) => (
+            <CardType>{typeObj.type.name}</CardType>
+            )) }
+        </TypesContainer>
+      </InfoContainer>
+    </StyledCard>
+  )
+}
+
 const StyledCard = styled.div`
   display: grid;
   background-color: ${({ theme }) => theme.colors.cardBackground};
@@ -11,7 +31,8 @@ const StyledCard = styled.div`
 const CardImage = styled.img`
   padding: ${({ theme }) => theme.sizes.medium};
   padding-bottom: 0;
-  max-width: ${({ theme }) => theme.sizes.pokemonImg};
+  width: ${({ theme }) => theme.sizes.pokemonImg};
+  height: ${({ theme }) => theme.sizes.pokemonImg};
 `
 
 const CardName = styled.h3`
@@ -49,25 +70,5 @@ const InfoContainer = styled.div`
   padding-bottom: 0;
   margin: ${({ theme }) => theme.sizes.small};
 `
-
-const Card = ({pokemon}) => {
-  return (
-    <StyledCard>
-      <ImageContainer>
-        { pokemon && <CardImage src={pokemon.sprites.other.dream_world.front_default} ></CardImage>
-        }
-      </ImageContainer>
-      <InfoContainer>
-        { pokemon && <CardId># {pokemon.id}</CardId> }
-        { pokemon && <CardName>{pokemon.name}</CardName> }
-        <TypesContainer>
-          { pokemon && pokemon.types.map((typeObj) => (
-            <CardType>{typeObj.type.name}</CardType>
-            )) }
-        </TypesContainer>
-      </InfoContainer>
-    </StyledCard>
-  )
-}
 
 export default Card
