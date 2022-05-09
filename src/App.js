@@ -13,16 +13,17 @@ function App() {
   const [isLoading, setIsLoading] = useState(false)
 
   const getPokemon = async () => {
+    setIsLoading(true)
+
     try {
-      setIsLoading(true)
       const pokemonsObj = await fetchPokemons()
-      setIsLoading(false)
       setPokemons(pokemonsObj)
     } catch (error) {
       console.error(error)
-      setIsLoading(false)
       setHasError(true)
     }
+    
+    setIsLoading(false)
   }
 
   useEffect( () => {
