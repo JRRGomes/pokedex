@@ -1,10 +1,6 @@
 import styled from 'styled-components';
 
-const CardsContainer = ({children, ...props}) => {
-  return <StyledContainer {...props}>{children}</StyledContainer>
-}
-
-const StyledContainer = styled.section`
+export const CardsContainer = styled.section`
   display: grid;
 	grid-template-columns: repeat(5, 1fr);
   justify-items: center;
@@ -28,5 +24,3 @@ const StyledContainer = styled.section`
     padding: ${({ theme }) => theme.sizes.xxlarge} 0;
   }
 `
-
-export default CardsContainer
