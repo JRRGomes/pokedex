@@ -1,21 +1,44 @@
 import { screen } from "@testing-library/react";
 import Card from "../components/Card";
-import pokemon from "../test/testPokemon.json";
-import { RenderComponent } from "../test/renderComponent";
+import { renderComponent } from "../test/renderComponent";
+
+const POKEMON = {
+  "id": 132,
+  "name": "ditto",
+  "types": [
+    {
+      "type": {
+        "name": "normal",
+      }
+    }
+  ],
+  "sprites": {
+    "other": {
+      "dream_world": {
+        "front_default": "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/132.svg",
+      }
+    }
+  },
+}
 
 describe("Card", () => {
   it("should render pokemon id", () => {
-    RenderComponent(<Card key={pokemon.name} pokemon={pokemon} />)
-    expect(screen.getByText('# 132' )).toBeInTheDocument();
+    renderComponent(<Card pokemon={POKEMON} />)
+    expect(screen.getByText('# 132')).toBeInTheDocument();
   });
   
   it("should render pokemon name", () => {
-    RenderComponent(<Card key={pokemon.name} pokemon={pokemon} />)
+    renderComponent(<Card pokemon={POKEMON} />)
     expect(screen.getByRole('heading', {name: /ditto/i})).toBeInTheDocument();
   });
 
   it("should render pokemon type", () => {
-    RenderComponent(<Card key={pokemon.name} pokemon={pokemon} />)
-    expect(screen.getByText('normal' )).toBeInTheDocument();
+    renderComponent(<Card pokemon={POKEMON} />)
+    expect(screen.getByText('normal')).toBeInTheDocument();
+  });
+
+  it("should render pokemon image", () => {
+    renderComponent(<Card pokemon={POKEMON} />)
+    expect(screen.getByRole('img')).toHaveAttribute('src', 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/132.svg');
   });
 });
